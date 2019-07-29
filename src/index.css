@@ -11,3 +11,66 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+th:nth-child(odd),
+td:nth-child(odd) {
+  background: lightblue;
+}
+
+
+.status {
+  width: 20px;
+  height: 20px;
+}
+
+.status:hover {
+  cursor: pointer;
+}
+
+.status-new {
+  border: 1px solid black;
+}
+
+.status-in-progress {
+  border: 1px solid black;
+  background: transparent; /* Old browsers */
+  background: -moz-linear-gradient(-45deg, transparent 50%,#000000 50%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(-45deg,  transparent 50%,#000000 50%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(135deg,  transparent 50%,#000000 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.status-done {
+  border: 1px solid black;
+  background: black;
+
+}
+
+.status-cancel {
+  border: 1px solid black;
+}
+.status-cancel::after {
+  content: 'X';
+  display: block;
+  text-align: center;
+}
+
+.status-next {
+  border: 1px solid black;
+}
+.status-next::after {
+  content: '->';
+  display: block;
+  text-align: center;
+}
+
+.status-previous {
+  border: 1px solid black;
+}
+.status-previous::after {
+  content: '<-';
+  display: block;
+  text-align: center;
+}
+
+
+

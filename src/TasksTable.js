@@ -3,7 +3,6 @@ import Task from './Task'
 
 function TasksTable() {
     return (
-        <div className="App">
             <table>
                 <tbody>
                 <tr>
@@ -30,7 +29,6 @@ function TasksTable() {
                     <Task/>
                 </tbody>
             </table>
-        </div>
     );
 }
 
