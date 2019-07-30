@@ -51,7 +51,6 @@ class Calendar extends Component {
                     <th></th>
                 </tr>
                 <tr>
-                    {console.log(this.currentWeekDays)}
                     {this.currentWeekDays.map((item) => (<th>{item.getDate()}</th>))}
                     <th>Tasks</th>
                 </tr>
