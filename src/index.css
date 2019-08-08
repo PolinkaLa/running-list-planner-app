@@ -17,10 +17,27 @@ td:nth-child(odd) {
   background: lightblue;
 }
 
+th,
+td {
+  width: 50px;
+  height: 50px;
+  display: inline-block;
+}
+
+table {
+  border: 1px solid lightblue;
+}
+th {
+  line-height: 3;
+}
+.task-text {
+  width: 300px;
+  line-height: 3;
+}
 
 .status {
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
 }
 
 .status:hover {
@@ -72,5 +89,12 @@ td:nth-child(odd) {
   text-align: center;
 }
 
-
+.menu {
+  /* position: absolute;
+  top: 50px;
+  left: 50px; */
+  background: lightgray;
+  width: 150px;
+  height: 150px;
+}
 

@@ -5,8 +5,8 @@ import Calendar from './Calendar'
 
 function App() {
     return (
-        <div className="App">
-            <Calendar/>
+        <div className="App" key="1">
+            <Calendar key="1"/>
             {/* <TasksTable/> */}
         </div>
     );

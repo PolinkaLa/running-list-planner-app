@@ -1,7 +1,7 @@
 import React from 'react';
 
 function StatusMenu() {
-    return <div>
+    return <div className="menu">
         <ul>
             <li>new</li>
             <li>in progress</li>
