@@ -1,5 +1,5 @@
 import React, { Component} from 'react';
-import StatusMenu from './StatusMenu'
+// import StatusMenu from './StatusMenu'
 
 class Task extends Component {
     constructor() {
@@ -11,7 +11,7 @@ class Task extends Component {
     }
     
     handleClick = event => {
-        console.log(event.getScreenX(), event.getScreenY())
+        // console.log(event.getScreenX(), event.getScreenY())
         // this.setState({
         //     isShowStatus: this.state.isShowStatus ? false : true,
         //     isShowSelecr: this.state.isShowSelect ? false : true}) 

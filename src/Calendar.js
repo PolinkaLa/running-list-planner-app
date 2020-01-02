@@ -102,10 +102,9 @@ class Calendar extends Component {
                         selectedDays.map((item) => 
                         (<th className="tbl-date-head">{moment(item).format('DD')}</th>))
                     }
-                    <th></th>
                     </tr>
                     <tr>
-                        <th>Wo</th>
+                        <th>Mo</th>
                         <th>Tu</th>
                         <th>We</th>
                         <th>Th</th>

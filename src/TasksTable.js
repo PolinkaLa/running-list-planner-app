@@ -15,18 +15,8 @@ function TasksTable() {
                     <th>Su</th>
                     <th></th>
                 </tr>
-                <tr>
-                    <th>1</th>
-                    <th>2</th>
-                    <th>3</th>
-                    <th>4</th>
-                    <th>5</th>
-                    <th>6</th>
-                    <th>7</th>
-                    <th>Tasks</th>
-                </tr>
-                    <Task/>
-                    <Task/>
+                <Task/>
+                <Task/>
                 </tbody>
             </table>
     );
