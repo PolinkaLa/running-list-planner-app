@@ -89,12 +89,11 @@ th {
   text-align: center;
 }
 
-.menu {
-  /* position: absolute;
-  top: 50px;
-  left: 50px; */
-  background: lightgray;
-  width: 150px;
-  height: 150px;
+
+.menu select {
+  width: 50px;
 }
 
+.container {
+  /* display: flex; */
+}

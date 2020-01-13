@@ -2,14 +2,15 @@ import React from 'react';
 
 function StatusMenu() {
     return <div className="menu">
-        <ul>
-            <li>new</li>
-            <li>in progress</li>
-            <li>done</li>
-            <li>cancel</li>
-            <li>next</li>
-            <li>prev</li>
-        </ul>
+        <select>
+            <option value="empty"></option>
+            <option value="new">new</option>
+            <option value="progress">in progress</option>
+            <option value="done">done</option>
+            <option value="cancel">cancel</option>
+            <option value="next">next</option>
+            <option value="prev">prev</option>
+        </select>
     </div>
 }
 

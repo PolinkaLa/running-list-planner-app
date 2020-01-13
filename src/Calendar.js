@@ -3,7 +3,7 @@ import Task from './Task';
 import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import moment from 'moment';
-import StatusMenu from './StatusMenu'
+// import StatusMenu from './StatusMenu'
 
 function getWeekRange(date) {
     return {
@@ -31,7 +31,8 @@ function getWeekDays(weekStart) {
 class Calendar extends Component {
     state = {
         hoverRange: undefined,
-        selectedDays: []
+        selectedDays: [],
+        taskData: []
     };
 
     handleDayChange = date => {
@@ -63,12 +64,37 @@ class Calendar extends Component {
         console.log("add new task")
     }
 
-    componentWillMount() {
-        this.handleDayChange(new Date())
+    componentDidMount() {
+        this.handleDayChange(new Date());
+        // TODO get real fetch request
+        this.setState({
+            taskData: [
+                {
+                    "mo": null,
+                    "tu": null,
+                    "we": null,
+                    "th": null,
+                    "fr": null,
+                    "sa": null,
+                    "su": null,
+                    "taskText": "help me!"
+                },
+                {
+                    "mo": null,
+                    "tu": null,
+                    "we": null,
+                    "th": null,
+                    "fr": null,
+                    "sa": null,
+                    "su": null,
+                    "taskText": "help me!"
+                }
+            ]
+        })
     }
 
     render() {
-        const { hoverRange, selectedDays} = this.state;
+        const { hoverRange, selectedDays, taskData} = this.state;
 
         const daysAreSelected = selectedDays.length > 0;
 
@@ -83,7 +109,7 @@ class Calendar extends Component {
             selectedRangeStart: daysAreSelected && selectedDays[0],
             selectedRangeEnd: daysAreSelected && selectedDays[6],
         };
-        return <div>
+        return <div className="container">
             <DayPicker
                 firstDayOfWeek={1}
                 selectedDays={selectedDays}
@@ -102,22 +128,23 @@ class Calendar extends Component {
                         selectedDays.map((item) => 
                         (<th className="tbl-date-head">{moment(item).format('DD')}</th>))
                     }
-                    </tr>
-                    <tr>
-                        <th>Mo</th>
-                        <th>Tu</th>
-                        <th>We</th>
-                        <th>Th</th>
-                        <th>Fr</th>
-                        <th>Sa</th>
-                        <th>Su</th>
-                        <th className="task-text">Tasks</th>
-                    </tr>
-                    
-                    <Task key="1"/>
+                </tr>
+                <tr>
+                    <th>Mo</th>
+                    <th>Tu</th>
+                    <th>We</th>
+                    <th>Th</th>
+                    <th>Fr</th>
+                    <th>Sa</th>
+                    <th>Su</th>
+                    <th className="task-text">Tasks</th>
+                </tr>
+
+                {taskData.map((item) => (
+                    <Task taskData={item} />
+                ))} 
                 </tbody>
             </table>
-            <StatusMenu/>
         </div>
     }
 }
