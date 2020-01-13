@@ -1,8 +1,7 @@
 import React from 'react';
 
 function StatusMenu() {
-    return <div className="menu">
-        <select>
+    return <select>
             <option value="empty"></option>
             <option value="new">new</option>
             <option value="progress">in progress</option>
@@ -11,7 +10,6 @@ function StatusMenu() {
             <option value="next">next</option>
             <option value="prev">prev</option>
         </select>
-    </div>
 }
 
 export default StatusMenu;

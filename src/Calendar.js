@@ -60,8 +60,21 @@ class Calendar extends Component {
         });
     };
 
-    addNewTask = e => {
-        console.log("add new task")
+    addNewTask = event => {
+        console.log("add new task");
+        this.setState({
+            taskData: [...this.state.taskData, 
+                {
+                    "mo": null,
+                    "tu": null,
+                    "we": null,
+                    "th": null,
+                    "fr": null,
+                    "sa": null,
+                    "su": null,
+                    "taskText": ""
+                }]
+        })
     }
 
     componentDidMount() {
@@ -145,6 +158,7 @@ class Calendar extends Component {
                 ))} 
                 </tbody>
             </table>
+            <button onClick={this.addNewTask}>Add task</button>
         </div>
     }
 }
