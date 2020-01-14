@@ -16,18 +16,44 @@ class Task extends Component {
     }
 
     render() {
-        const arr = []
+        const arr = [];
+        let day = "";
         for(let i = 0; i < 7; i++) {
+            switch (i) {
+                case 0:
+                    day = "mo"
+                    break
+                case 1:
+                    day = "tu"
+                    break
+                case 2:
+                    day = "we"
+                    break
+                case 3:
+                    day = "th"
+                    break
+                case 4:
+                    day = "fr"
+                    break
+                case 5:
+                    day = "sa"
+                    break
+                case 6:
+                    day = "su"
+                    break
+                default:
+                    day = "";
+            }
             arr.push( <td key={i}>
                 <div className="menu">
                     <select onChange={this.changeStatus}>
-                        <option value="empty"></option>
-                        <option selected={false} value="new">new</option>
-                        <option value="progress">in progress</option>
-                        <option value="done">done</option>
-                        <option value="cancel">cancel</option>
-                        <option value="next">next</option>
-                        <option value="prev">prev</option>
+                        <option selected={this.props.taskData[day]==="empty"}value="empty"></option>
+                        <option selected={this.props.taskData[day]==="new"} value="new">new</option>
+                        <option selected={this.props.taskData[day]==="progress"} value="progress">in progress</option>
+                        <option selected={this.props.taskData[day]==="done"} value="done">done</option>
+                        <option selected={this.props.taskData[day]==="cancel"} value="cancel">cancel</option>
+                        <option selected={this.props.taskData[day]==="next"} value="next" className="status-next">next</option>
+                        <option selected={this.props.taskData[day]==="prev"} value="prev">prev</option>
                     </select>
                 </div>
 

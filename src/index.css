@@ -14,7 +14,7 @@ code {
 
 th:nth-child(odd),
 td:nth-child(odd) {
-  background: lightblue;
+  background: #4A90E2;
 }
 
 th,
@@ -25,7 +25,7 @@ td {
 }
 
 table {
-  border: 1px solid lightblue;
+  border: 1px solid #4A90E2;
 }
 th {
   line-height: 3;
@@ -33,6 +33,12 @@ th {
 .task-text {
   width: 300px;
   line-height: 3;
+}
+
+.task-text input {
+  height: 50px;
+  border: 0;
+  width: 100%;
 }
 
 .status {
@@ -92,7 +98,12 @@ th {
 
 select {
   width: 50px;
+  border: none;
+  height: 50px;
+  appearance: none;
+  background-color: transparent;
 }
+select::-ms-expand {	display: none; }
 
 .container {
   /* display: flex; */

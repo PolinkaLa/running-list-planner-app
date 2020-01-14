@@ -45,7 +45,6 @@ class Calendar extends Component {
         this.setState({
             hoverRange: getWeekRange(date),
         });
-        console.log(this.state.hoverRange)
     };
 
     handleDayLeave = () => {
@@ -80,30 +79,12 @@ class Calendar extends Component {
     componentDidMount() {
         this.handleDayChange(new Date());
         // TODO get real fetch request
-        this.setState({
-            taskData: [
-                {
-                    "mo": null,
-                    "tu": null,
-                    "we": null,
-                    "th": null,
-                    "fr": null,
-                    "sa": null,
-                    "su": null,
-                    "taskText": "help me!"
-                },
-                {
-                    "mo": null,
-                    "tu": null,
-                    "we": null,
-                    "th": null,
-                    "fr": null,
-                    "sa": null,
-                    "su": null,
-                    "taskText": "help me!"
-                }
-            ]
-        })
+        const url = `http://d74ev.mocklab.io/tasks`
+        fetch(url)
+            .then(response => response.json())
+            .then(json => this.setState({
+                taskData: json
+            }))
     }
 
     render() {
