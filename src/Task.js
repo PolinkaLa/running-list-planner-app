@@ -1,5 +1,4 @@
 import React, { Component} from 'react';
-import StatusMenu from './StatusMenu'
 
 class Task extends Component {
     constructor() {
@@ -8,7 +7,13 @@ class Task extends Component {
     }
 
     changeStatus = event => {
-        console.log("update and save this task")
+        const taskID = this.props.taskData.id;
+        const newStatus = event.target.value;
+        const changedDay = event.target.parentElement.className;
+        let storage = JSON.parse(localStorage.plannerApp);
+        const index = storage.findIndex(item => item.id === taskID);
+        storage[index][changedDay]=newStatus;
+        localStorage.plannerApp = JSON.stringify(storage);
     }
 
     changeTaskText = event => {
@@ -44,8 +49,7 @@ class Task extends Component {
                 default:
                     day = "";
             }
-            arr.push( <td key={i}>
-                <div className="menu">
+            arr.push( <td key={i} className={day}>
                     <select onChange={this.changeStatus}>
                         <option selected={this.props.taskData[day]==="empty"}value="empty"></option>
                         <option selected={this.props.taskData[day]==="new"} value="new">new</option>
@@ -55,15 +59,12 @@ class Task extends Component {
                         <option selected={this.props.taskData[day]==="next"} value="next" className="status-next">next</option>
                         <option selected={this.props.taskData[day]==="prev"} value="prev">prev</option>
                     </select>
-                </div>
-
-                {/* <StatusMenu onClick={this.changeStatus}/> */}
             </td>)
         }
         arr.push(<td className="task-text"><input type="text" value={this.props.taskData.taskText} onChange={this.changeTaskText}/></td>)
         return <tr>
             {arr}
-    </tr>
+        </tr>
     }
 }
 
