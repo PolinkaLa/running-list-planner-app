@@ -1,20 +1,17 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&display=swap');
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
+  font-family: 'Roboto Mono', monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background: #EFF3F3;
+  /* color: #666E99; */
+  
 }
+
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
-}
-
-th:nth-child(odd),
-td:nth-child(odd) {
-  background: #4A90E2;
+  font-family: 'Roboto Mono', monospace;
 }
 
 th,
@@ -22,79 +19,90 @@ td {
   width: 50px;
   height: 50px;
   display: inline-block;
+  background: #fff;
+  margin-right: 5px;
+  border-radius: 6px;
+  margin-bottom: 5px;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: normal;
 }
 
 table {
-  border: 1px solid #4A90E2;
+  border-spacing: 0;
+  color: #000;
 }
-th {
-  line-height: 3;
+
+th p {
+margin: 0;
 }
+
+th.task-text{
+  line-height: 2.5;
+}
+
+th p:first-child {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.4);
+}
+
 .task-text {
-  width: 300px;
-  line-height: 3;
+  width: 780px;
+  /* line-height: 3; */
 }
 
 .task-text input {
-  height: 50px;
+  height: 48px;
   border: 0;
   width: 100%;
+  background: transparent;
+  color: #000;
+  padding-left: 10px;
+  font-size: 20px;
+  box-sizing: border-box;
+  font-family: 'Roboto Mono', monospace;
+}
+
+.task-text input:focus {
+  outline: 1px solid #5C5A6D;
+}
+
+.task-text input:hover {
+  cursor: pointer;
 }
 
 .status {
-  width: 40px;
-  height: 40px;
+  width: 50px;
+  height: 50px;
 }
 
-.status:hover {
+select:hover{
   cursor: pointer;
 }
 
 .status-new {
-  border: 1px solid black;
+  background: url(img/new.svg);
 }
 
-.status-in-progress {
-  border: 1px solid black;
-  background: transparent; /* Old browsers */
-  background: -moz-linear-gradient(-45deg, transparent 50%,#000000 50%); /* FF3.6-15 */
-  background: -webkit-linear-gradient(-45deg,  transparent 50%,#000000 50%); /* Chrome10-25,Safari5.1-6 */
-  background: linear-gradient(135deg,  transparent 50%,#000000 50%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+.status-progress {
+  background: url(img/progress.svg);
 }
 
 .status-done {
-  border: 1px solid black;
-  background: black;
-
+  background: url(img/done.svg);
 }
 
 .status-cancel {
-  border: 1px solid black;
-}
-.status-cancel::after {
-  content: 'X';
-  display: block;
-  text-align: center;
+  background: url(img/cancel.svg);
 }
 
 .status-next {
-  border: 1px solid black;
-}
-.status-next::after {
-  content: '->';
-  display: block;
-  text-align: center;
+  background: url(img/next.svg);
 }
 
-.status-previous {
-  border: 1px solid black;
+.status-prev {
+  background: url(img/prev.svg);
 }
-.status-previous::after {
-  content: '<-';
-  display: block;
-  text-align: center;
-}
-
 
 select {
   width: 50px;
@@ -102,9 +110,186 @@ select {
   height: 50px;
   appearance: none;
   background-color: transparent;
+  color: transparent;
+  outline: none;
 }
 select::-ms-expand {	display: none; }
 
+select option {
+  color: black;
+  font-family: 'Roboto Mono', monospace;
+  border: none;
+  outline: none;
+}
+
 .container {
-  /* display: flex; */
+  display: flex;
+  min-height: 100%;
+  flex: 1;
+}
+
+.help {
+  display: flex;
+  flex-direction: column;
+  background: #222336;
+  /* width: fit-content; */
+  padding-left: 20px;
+  padding-right: 20px;
+  margin: 0 20px 20px 20px;
+  padding-bottom: 1em;
+}
+
+.help .title {
+  font-weight: 500;
+    font-size: 1.15em;
+}
+
+.help .item {
+  display: flex;
+  flex-direction: row;
+  padding: 0.5em;
+}
+
+.help .item img{
+  width: 25px;
+  height: 25px;
+}
+
+.help .item p{
+margin: 0 10px;
+}
+
+header {
+  height: 10vh;
+  background: #1D1934;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+header h1 {
+  font-size: 25px;
+  color: rgba(255, 255, 255, 0.7);
+  margin-left: 30px;
+}
+
+header h2 {
+  color: rgba(255, 245, 104, 0.7);
+  font-size: 20px;
+  font-weight: normal;
+  margin-right: 20px;
+}
+
+header div:last-child {
+  display: flex;
+  flex-direction: row;
+  margin-right: 30px;
+  align-items: center;
+}
+
+header img {
+  /* height: 70px; */
+}
+
+
+.DayPicker .DayPicker-Day {
+  border-radius: 0%
+}
+
+.DayPicker .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside) {
+  background-color: #3E4161;
+  color: #666E99;
+}
+
+.wrapper {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.DayPicker .DayPicker-Day--selected:not(.DayPicker-Day--disabled):not(.DayPicker-Day--outside):hover {
+  background-color: #3E4161;
+}
+
+.DayPicker .DayPicker-Weekday, 
+.DayPicker .DayPicker-WeekNumber {
+  color:#3E4161
+}
+
+.DayPicker .DayPicker-WeekNumber {
+  border-right: 1px solid#3E4161
+}
+
+.DayPicker .DayPicker-Day:focus {
+  outline: 1px solid #3E4161
+}
+
+
+.DayPicker {
+  background: #222336;
+  margin: 20px;
+}
+
+.DayPicker:focus,
+.DayPicker .DayPicker-WeekNumber:focus,
+.DayPicker .DayPicker-Months:focus, 
+.DayPicker .DayPicker-wrapper:focus,
+.DayPicker .DayPicker-NavButton:focus{
+  outline: none;
+}
+
+.add-btn {
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color:rgba(0, 181, 81, 1);
+  bottom: 50px;
+  right: 50px;
+  font-size: 50px;
+  color: rgba(255, 255, 255, 0.7);
+  border: none;
+  line-height: 1;
+}
+.add-btn:hover{
+  cursor: pointer;
+  background-color:rgba(0, 181, 81, 0.9);
+}
+.add-btn:focus{
+  outline: none;
+  background-color:rgba(0, 181, 81, 0.7);
+}
+
+aside {
+  width: 60px;
+  background: #5C5A6D;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+aside div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+aside div span {
+  color: rgba(255, 255, 255, 0.7);
+  margin: 10px;
+}
+
+aside div span svg:hover path{
+  fill:rgba(255, 245, 104, 0.7);
+}
+aside div span:hover{
+  cursor: pointer;
+}
+
+main {
+  margin: 0 auto;
+  overflow-y: scroll;
+  height: 85vh;
+  margin-top: 20px;
 }
