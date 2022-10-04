@@ -1,4 +1,5 @@
 import React, { Component} from 'react';
+import { SHORT_WEEK_DAY, TASK_STATUS } from '../components/Constants';
 
 class Task extends Component {
     constructor(props) {
@@ -40,38 +41,37 @@ class Task extends Component {
         for(let i = 0; i < 7; i++) {
             switch (i) {
                 case 0:
-                    day = "mo"
+                    day = SHORT_WEEK_DAY[0]
                     break
                 case 1:
-                    day = "tu"
+                    day = SHORT_WEEK_DAY[1]
                     break
                 case 2:
-                    day = "we"
+                    day = SHORT_WEEK_DAY[2]
                     break
                 case 3:
-                    day = "th"
+                    day = SHORT_WEEK_DAY[3]
                     break
                 case 4:
-                    day = "fr"
+                    day = SHORT_WEEK_DAY[4]
                     break
                 case 5:
-                    day = "sa"
+                    day = SHORT_WEEK_DAY[5]
                     break
                 case 6:
-                    day = "su"
+                    day = SHORT_WEEK_DAY[6]
                     break
                 default:
                     day = "";
             }
             arr.push( <td key={i} className={day}>
                     <select onChange={this.changeStatus} className={"status-"+this.props.taskData[day]}>
-                        <option selected={this.props.taskData[day]==="empty"} value="empty"></option>
-                        <option selected={this.props.taskData[day]==="new"} value="new">new</option>
-                        <option selected={this.props.taskData[day]==="progress"} value="progress">progress</option>
-                        <option selected={this.props.taskData[day]==="done"} value="done">done</option>
-                        <option selected={this.props.taskData[day]==="cancel"} value="cancel">cancel</option>
-                        <option selected={this.props.taskData[day]==="next"} value="next">next</option>
-                        <option selected={this.props.taskData[day]==="prev"} value="prev">prev</option>
+                        {
+                            // eslint-disable-next-line no-loop-func
+                            TASK_STATUS.map((item) => (
+                                <option key={i+item.value} selected={this.props.taskData[day]===item.value} value={item.value}>{item.label}</option>
+                            ))
+                        }
                     </select>
             </td>)
         }

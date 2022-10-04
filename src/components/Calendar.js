@@ -1,11 +1,14 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React, { Component } from 'react';
-import Task from './Task';
-import DayPicker from 'react-day-picker';
+import Task from '../components/Task';
+// import DayPicker from 'react-day-picker';
 import 'react-day-picker/lib/style.css';
 import moment from 'moment';
-import Help from './Help';
-import avatar from './img/avatar.png';
+// import Help from './Help';
+import avatar from '../img/avatar.png';
 // import Modal from '.Modal';
+import { SHORT_WEEK_DAY } from "../components/Constants"
+
 
 function getWeekRange(date) {
     return {
@@ -106,21 +109,22 @@ class Calendar extends Component {
         if (!localStorage.plannerApp) {
             localStorage.plannerApp="[]";
         }
-        const { hoverRange, selectedDays, taskData} = this.state;
+        const { /* hoverRange, */ selectedDays, taskData} = this.state;
 
-        const daysAreSelected = selectedDays.length > 0;
+        // const daysAreSelected = selectedDays.length > 0;
 
-        const modifiers = {
-            hoverRange,
-            selectedRange: daysAreSelected && {
-                from: selectedDays[0],
-                to: selectedDays[6],
-            },
-            hoverRangeStart: hoverRange && hoverRange.from,
-            hoverRangeEnd: hoverRange && hoverRange.to,
-            selectedRangeStart: daysAreSelected && selectedDays[0],
-            selectedRangeEnd: daysAreSelected && selectedDays[6],
-        };
+        // const modifiers = {
+        //     hoverRange,
+        //     selectedRange: daysAreSelected && {
+        //         from: selectedDays[0],
+        //         to: selectedDays[6],
+        //     },
+        //     hoverRangeStart: hoverRange && hoverRange.from,
+        //     hoverRangeEnd: hoverRange && hoverRange.to,
+        //     selectedRangeStart: daysAreSelected && selectedDays[0],
+        //     selectedRangeEnd: daysAreSelected && selectedDays[6],
+        // };
+        
         return (
         <div className="wrapper">
             <header>
@@ -131,6 +135,8 @@ class Calendar extends Component {
                 </div>
                 <div>
                     <h2>Polina Lappo</h2>
+                    {// eslint-disable-next-line jsx-a11y/alt-text
+                    }
                     <img src={avatar}/>
                 </div>
             </header>
@@ -198,25 +204,18 @@ class Calendar extends Component {
                     /> */}
                     <table>
                         <tbody>
-                            {/* <tr>
-                            {selectedDays.length === 7 &&
-                                selectedDays.map((item) => 
-                                (<th className="tbl-date-head" key={item}>{moment(item).format('DD')}</th>))
-                            }
-                        </tr> */}
-                        <tr>
-                            <th><p>{moment(selectedDays[0]).format('DD')}</p><p>Mo</p></th>
-                            <th><p>{moment(selectedDays[1]).format('DD')}</p><p>Tu</p></th>
-                            <th><p>{moment(selectedDays[2]).format('DD')}</p><p>We</p></th>
-                            <th><p>{moment(selectedDays[3]).format('DD')}</p><p>Th</p></th>
-                            <th><p>{moment(selectedDays[4]).format('DD')}</p><p>Fr</p></th>
-                            <th><p>{moment(selectedDays[5]).format('DD')}</p><p>Sa</p></th>
-                            <th><p>{moment(selectedDays[6]).format('DD')}</p><p>Su</p></th>
-                            <th className="task-text">Tasks</th>
-                        </tr>
-                        {taskData.map((item) => (
-                            <Task taskData={item} key={item.id}/>
-                        ))}
+                            <tr>
+                                {SHORT_WEEK_DAY.map((item) => 
+                                    <th key={item}>
+                                        <p>{moment(selectedDays[SHORT_WEEK_DAY.indexOf(item)]).format('DD')}</p>
+                                        <p>{item}</p>
+                                    </th>
+                                )}
+                                <th className="task-text">Tasks</th>
+                            </tr>
+                            {taskData.map((item) => (
+                                <Task taskData={item} key={item.id}/>
+                            ))}
                         </tbody>
                     </table>
                     <button className="add-btn" onClick={this.addNewTask}>+</button>
