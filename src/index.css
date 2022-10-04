@@ -6,9 +6,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: #EFF3F3;
   /* color: #666E99; */
-  
 }
-
 
 code {
   font-family: 'Roboto Mono', monospace;
@@ -188,11 +186,6 @@ header div:last-child {
   align-items: center;
 }
 
-header img {
-  /* height: 70px; */
-}
-
-
 .DayPicker .DayPicker-Day {
   border-radius: 0%
 }
@@ -280,10 +273,12 @@ aside div span {
   margin: 10px;
 }
 
-aside div span svg:hover path{
-  fill:rgba(255, 245, 104, 0.7);
-}
 aside div span:hover{
+  color:rgba(255, 245, 104, 0.7);
+}
+
+aside div span:hover,
+aside div span object:hover{
   cursor: pointer;
 }
 

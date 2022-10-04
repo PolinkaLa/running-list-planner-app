@@ -1,13 +1,23 @@
 import React from 'react';
-// import TasksTable from './TasksTable';
-import Calendar from '../src/components/Calendar'
+import TaskList from './components/TaskList'
+import Header from './components/Header';
+import LeftMenu from './components/LeftMenu';
+// import Calendar from './components/Calendar';
 
 
 function App() {
     return (
         <div className="App" key="1">
-            <Calendar key="1"/>
-            {/* <TasksTable/> */}
+            <div className="wrapper">
+                <Header />
+                <div className="container">
+                    <LeftMenu />
+                    <main>
+                        {/* <Calendar /> */}
+                        <TaskList key="1"/>
+                    </main>
+                </div>
+            </div>
         </div>
     );
 }

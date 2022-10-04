@@ -1,3 +1,4 @@
+/* eslint-disable no-loop-func */
 import React, { Component} from 'react';
 import { SHORT_WEEK_DAY, TASK_STATUS } from '../components/Constants';
 
@@ -31,8 +32,6 @@ class Task extends Component {
         const index = storage.findIndex(item => item.id === taskID);
         storage[index].taskText = event.target.value
         localStorage.plannerApp = JSON.stringify(storage);
-        console.log(this.state.taskText)
-        console.log("change task description")
     }
 
     render() {
@@ -67,15 +66,14 @@ class Task extends Component {
             arr.push( <td key={i} className={day}>
                     <select onChange={this.changeStatus} className={"status-"+this.props.taskData[day]}>
                         {
-                            // eslint-disable-next-line no-loop-func
                             TASK_STATUS.map((item) => (
-                                <option key={i+item.value} selected={this.props.taskData[day]===item.value} value={item.value}>{item.label}</option>
+                                <option key={i+item.value} defaultValue={this.props.taskData[day]===item.value} value={item.value}>{item.label}</option>
                             ))
                         }
                     </select>
             </td>)
         }
-        arr.push(<td className="task-text"><input type="text" value={this.state.taskText} onChange={this.changeTaskText}/></td>)
+        arr.push(<td key='task-text' className="task-text"><input type="text" value={this.state.taskText} onChange={this.changeTaskText}/></td>)
         return <tr>
             {arr}
         </tr>
