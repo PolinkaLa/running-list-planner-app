@@ -6,23 +6,18 @@ import menuExportIcon from '../img/export.svg';
 import menuDeleteIcon from '../img/del.svg';
 import menuHelpIcon from '../img/help.svg';
 import menuMailIcon from '../img/mail.svg';
-
-function cleanStorage() {
-    localStorage.plannerApp = "[]";
-    // TODO set empty array to taskDate State
-    // this.setState({
-    //     taskData: JSON.parse(localStorage.plannerApp)
-    // })
-}
+import { useDispatch } from 'react-redux';
+import { reset } from './taskListSlicer';
 
 export default function LeftMenu() {
+    const dispatch = useDispatch();
     return (
         <aside>
             <div>
                 <span><img src={menuProfileIcon} /></span>
                 <span><img src={menuImportIcon} /></span>
                 <span><img src={menuExportIcon} /></span>
-                <span onClick={cleanStorage}><img src={menuDeleteIcon} /></span>
+                <span onClick={() => dispatch(reset())}><img src={menuDeleteIcon} /></span>
             </div>
             <div>
                 <span><img src={menuHelpIcon} /></span>

@@ -4,11 +4,13 @@
   "private": true,
   "dependencies": {
     "@babel/runtime": "^7.5.5",
+    "@reduxjs/toolkit": "^1.8.5",
     "moment": "^2.24.0",
     "react": "^16.8.6",
     "react-day-picker": "^7.3.2",
     "react-dev-utils": "^9.0.1",
-    "react-dom": "^16.8.6",
+    "react-dom": "^16.14.0",
+    "react-redux": "^8.0.4",
     "react-scripts": "3.0.1"
   },
   "scripts": {
