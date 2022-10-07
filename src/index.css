@@ -280,6 +280,11 @@ aside div span:hover{
   cursor: pointer;
 }
 
+aside div span[aria-disabled]{
+  cursor: unset;
+  filter: contrast(0.1);
+}
+
 main {
   margin: 0 auto;
   overflow-y: scroll;

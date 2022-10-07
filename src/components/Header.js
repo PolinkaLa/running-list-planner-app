@@ -10,7 +10,7 @@ export default function Header() {
             </h1>
         </div>
         <div>
-            <h2>Polina Lappo</h2>
+            <h2>Welcome Guest</h2>
             <img src={avatar}/>
         </div>
     </header>)

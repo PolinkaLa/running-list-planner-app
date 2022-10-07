@@ -5,7 +5,6 @@ import menuImportIcon from '../img/import.svg';
 import menuExportIcon from '../img/export.svg';
 import menuDeleteIcon from '../img/del.svg';
 import menuHelpIcon from '../img/help.svg';
-import menuMailIcon from '../img/mail.svg';
 import { useDispatch } from 'react-redux';
 import { reset } from './taskListSlicer';
 
@@ -14,14 +13,13 @@ export default function LeftMenu() {
     return (
         <aside>
             <div>
-                <span><img src={menuProfileIcon} /></span>
-                <span><img src={menuImportIcon} /></span>
-                <span><img src={menuExportIcon} /></span>
+                <span aria-disabled title="function in progress"><img src={menuProfileIcon} /></span>
+                <span aria-disabled title="function in progress"><img src={menuImportIcon} /></span>
+                <span aria-disabled title="function in progress"><img src={menuExportIcon} /></span>
                 <span onClick={() => dispatch(reset())}><img src={menuDeleteIcon} /></span>
             </div>
             <div>
-                <span><img src={menuHelpIcon} /></span>
-                <span><img src={menuMailIcon} /></span>
+                <span aria-disabled title="function in progress"><img src={menuHelpIcon} /></span>
             </div>
         </aside>
     )
